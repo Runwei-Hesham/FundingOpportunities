@@ -1,0 +1,11 @@
+NOTE: This spreadsheet is divided by "Global" opportunities then 'Country-Specific" then "US State" specific.  Listings are in alpha order within each category. 
+             Date they were added to the list is in the last colum
+THIS FUNDING LIST IS COMPILED BY KIRSTEN BARKER (kirsten.barker@cornell.edu) - PROGRAM DIRECTOR FOR THE INSTITUTE FOR WOMEN'S ENTREPRENEURSHIP AT CORNELL
+For more info about the program, click this link:, https://bofainstitute.cornell.edu/
+
+, State/Country, Type, Description, Amount, Deadline, Website, Date Posted
+GLOBAL
+About Her Microgrants, global, grant, Micro grants are open to Caribbean and African women + women of African and Caribbean descent, who are entrepreneurs, creatives and non-profit founders, based in their home countries or anywhere around the world. Applicants must demonstrate that their projects are positively impacting culture and community.  , $500, August 2024, https://aboutherculture.com/micro-grant-opportunities/, 4/6/2024
+Amazon App Store Small Business Accelerator , global, accelerator, The Small Business Accelerator Program allows developers that earn less than 1 million USD in total annual revenue in the previous calendar year to access additional benefits up to or equivalent to 20% of Appstore revenue. If eligible, you’ll receive a 10% increased royalty payment and AWS credits equivalent to 10% of your app revenue., AWS credits, n/a, https://developer.amazon.com/apps-and-games/small-business-program, 12/10/2022
+Amazon Small Business Success Studio, global, resources, The free service offers lessons in finance, marketing, procurement and operations, along with tips from founders , n/a, n/a, https://business.amazon.com/en/small-business/success-studio/welcome, 5/3/2024
+American Express Leadership Academy, global, fellowship, The Academy is for people in the non-profit sector who are intentionally striving to be better equipped to respond adaptively to challenges, and to keep going in the face of adversity., n/a, n/a, https://commonpurpose.org/american-express-leadership-academy#anchor1, 4/3/2024
