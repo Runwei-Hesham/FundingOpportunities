@@ -91,29 +91,55 @@ def map_row_to_api_format(row, header, opportunity_type_mapping):
     if title_idx == -1 or not row[title_idx].strip():
         return None  # Return None to skip this row
     
-    api_data = {api_field: row[header.index(sheet_col)] if sheet_col in header else '' 
-                for sheet_col, api_field in COLUMN_MAPPING.items()}
+    # Manually construct the api_data dictionary in the desired order
+    api_data = {
+        "title": row[header.index('')] if '' in header else '',
+        "url": '',
+        "logo_url": '',
+        "short_description": '',
+        "description": row[header.index('Description')] if 'Description' in header else '',
+        "eligibility": '',
+        "deadline": '',
+        "award_value": 0,
+        "cash_award": 0,
+        "contact_email": 'user@example.com',
+        "contact_names": '',
+        "opportunity_type_id": opportunity_type_mapping.get(row[header.index('Type')], '') if 'Type' in header else '',
+        "industry_id": '3fa85f64-5717-4562-b3fc-2c963f66afa6',
+        "target_community_id": '3fa85f64-5717-4562-b3fc-2c963f66afa6',
+        "time_zone": 'UTC',
+        "direct_apply_link": '',
+        "opportunity_gap": '',
+        "global_opportunity": True,
+        "global_locations": '',
+        "countries_eligible": row[header.index('State/Country')] if 'State/Country' in header else '',
+        "location_details": '',
+        "sdg_alignment": '',
+        "eso_website": row[header.index('Website')] if 'Website' in header else '',
+        "service_provider_eso": '',
+        "approval_status": 'draft',
+        "cost": 0,
+        "financial_terms": '',
+        "area_of_focus": '',
+        "tags": '',
+        "industry": '',
+        "slug": '',
+        "award_value_str": row[header.index('Amount')] if 'Amount' in header else '',
+        "deadline_str": row[header.index('Deadline')] if 'Deadline' in header else '',
+        "date_posted": row[header.index('Date Posted')] if 'Date Posted' in header else '',
+        "opportunitytype": row[header.index('Type')] if 'Type' in header else ''
+    }
 
-    # Add default values for fields not covered by the sheet columns
-    api_data.update(DEFAULTS)
-    
-    # Handle opportunity type mapping
-    if 'Type' in COLUMN_MAPPING:
-        type_idx = header.index('Type') if 'Type' in header else -1
-        if type_idx != -1 and len(row) > type_idx:
-            opportunity_type_name = row[type_idx]
-            api_data['opportunity_type_id'] = opportunity_type_mapping.get(opportunity_type_name, '')
-
-    # Handle date formatting if needed
-    if 'Deadline' in COLUMN_MAPPING:
-        deadline_idx = header.index('Deadline') if 'Deadline' in header else -1
-        if deadline_idx != -1 and len(row) > deadline_idx:
-            try:
-                api_data['deadline'] = datetime.strptime(row[deadline_idx], '%m/%d/%Y').isoformat()
-            except ValueError:
-                api_data['deadline'] = ''  # Set to empty if date parsing fails
+    # Handle date formatting for the 'deadline' field
+    deadline_idx = header.index('Deadline') if 'Deadline' in header else -1
+    if deadline_idx != -1 and len(row) > deadline_idx:
+        try:
+            api_data['deadline'] = datetime.strptime(row[deadline_idx], '%m/%d/%Y').isoformat()
+        except ValueError:
+            api_data['deadline'] = ''  # Set to empty if date parsing fails
 
     return api_data
+
 
 def group_data_by_region(data):
     if not data:
@@ -121,7 +147,7 @@ def group_data_by_region(data):
 
     header = data[0]
     rows = data[1:]
-    
+    print("headers: " , header)
     # Handle missing header columns by extending
     header = [header[i] if i < len(header) else '' for i in range(len(COLUMN_MAPPING))]
     
@@ -165,3 +191,5 @@ def get_data():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+
